@@ -8,6 +8,7 @@ import {
     LayoutAnimation,
     UIManager
 } from 'react-native';
+import Expo from 'expo';
 import TabNavigator from 'react-native-tab-navigator';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import TranslationPage from '../containers/TranslationPage/homepage';
@@ -16,13 +17,20 @@ import Moments from '../containers/Moments';
 import Storage from '../storage';
 import UserInfo from '../mobx/store';
 import { observer } from 'mobx-react';
+
+function changeScreenOrientation() {
+    Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+}
 @observer
-export default class Router extends React.PureComponent{
+export default class Router extends React.Component{
     constructor(props, context){
         super(props, context);
         this.state = {
             selectedTab: 'PersonPage'
         };
+    }
+    componentWillMount(){
+        changeScreenOrientation();
     }
     componentDidMount(){
         if (Platform.OS === 'android') {

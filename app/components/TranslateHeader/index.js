@@ -6,9 +6,6 @@ import {
     Platform
 } from 'react-native';
 export default class TranslateHeader extends React.PureComponent{
-    shouldComponentUpdate(){
-        return false;
-    }
     render() {
         // if(Platform.OS === 'android')
         //     height:

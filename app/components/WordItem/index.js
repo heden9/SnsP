@@ -4,8 +4,9 @@ import {
     Text,
     View
 } from 'react-native';
-import AudioBtnGroup from '../../components/AudioBtnGroup';
 import Sep from '../../components/Separated';
+import happy from '../../static/img/happy.png';
+import ImgBtn from '../../components/ImgBtn';
 import CollectionBtn from '../Collection';
 export default class WordItem extends React.PureComponent{
     render(){
@@ -25,7 +26,7 @@ export default class WordItem extends React.PureComponent{
                     }
                     <Sep height={10}/>
                     <View style={{flexDirection: 'row'}}>
-                        <AudioBtnGroup speakUrl={result.speakUrl} Audio={this.props.Audio}/>
+                        <ImgBtn url={happy}/>
                         <Text style={{marginLeft: 10}}>{result.basic['uk-phonetic'] ? `英[${result.basic['uk-phonetic']}]` : ''}</Text>
                         <Text style={{marginLeft: 10}}>{result.basic['us-phonetic'] ? `美[${result.basic['us-phonetic']}]` : ''}</Text>
                     </View>

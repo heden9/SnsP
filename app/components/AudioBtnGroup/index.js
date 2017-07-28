@@ -5,8 +5,8 @@ import {
     View,
     Platform
 } from 'react-native';
-import Video from 'react-native-video';
 import ImgBtn from '../ImgBtn';
+import Expo, { Audio, Video } from 'expo';
 import happy from '../../static/img/happy.png';
 import shutUp from '../../static/img/shutUp.png';
 import loading from '../../static/img/loading.png';
@@ -19,30 +19,21 @@ export default class AudioBtnGroup extends React.PureComponent{
         };
     }
     singHandle = () => {
-        this.setState({
-            loadState: 2,
-            click: true
-        });
     };
     //播放结束
     loadFinished = () => {
-        this.setState({
-            loadState: 1,
-            click: false
-        })
+        alert('finished');
     };
     loadError = () => {
-        this.setState({
-            loadState: 3,
-            click: false
-        });
+        alert('err');
     };
     _iosVideo = () => {
         return (
             <Video
                 source={{ uri: this.props.speakUrl }}
-                repeat={false}
-                onEnd={this.loadFinished}
+                useNativeControls={true}
+                onLoadStart={()=>alert('start')}
+                onLoad={this.loadFinished}
                 onError={this.loadError}
             />
         );
@@ -63,14 +54,17 @@ export default class AudioBtnGroup extends React.PureComponent{
     render(){
         return(
             <View>
+                {/*{*/}
+                    {/*this.renderImgBtn()*/}
+                {/*}*/}
+                {/*{*/}
+                    {/*//点击后加载音频*/}
+                    {/*this.state.click ?*/}
+                        {/*this._iosVideo()*/}
+                        {/*:null*/}
+                {/*}*/}
                 {
-                    this.renderImgBtn()
-                }
-                {
-                    //点击后加载音频
-                    this.state.click ?
-                        this._iosVideo()
-                        :null
+                    this._iosVideo()
                 }
             </View>
         );

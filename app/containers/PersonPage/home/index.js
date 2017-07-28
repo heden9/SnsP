@@ -3,13 +3,14 @@ import {
     StyleSheet,
     View
 } from 'react-native';
+import Expo from 'expo';
 import LoginComponent from '../../../components/LoginComponent';
 import PersonBtn from '../../../components/PersonPage_btn';
 import Sep from '../../../components/Separated';
 import UserInfo from '../../../mobx/store';
 import { observer } from 'mobx-react';
 @observer
-export default class PersonPage extends React.PureComponent{
+export default class PersonPage extends React.Component{
     enterHandle = (str) => {
         const {navigate} = this.props.navigation;
         navigate(str);
@@ -35,6 +36,7 @@ export default class PersonPage extends React.PureComponent{
                 </View>
             </View>
         );
+
     }
 }
 

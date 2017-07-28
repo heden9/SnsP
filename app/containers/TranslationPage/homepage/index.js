@@ -12,7 +12,7 @@ import UserInfo from '../../../mobx/store';
 import { observer } from 'mobx-react';
 import TranHeader from '../../../components/TranslateHeader';
 @observer
-export default class TranslationPage extends React.PureComponent{
+export default class TranslationPage extends React.Component{
     constructor(props, context){
         super(props, context);
         this.state = {

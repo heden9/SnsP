@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: 'white',
         alignItems: 'center',
-        borderTopWidth: .5,
+        borderTopWidth: 1,
         borderColor: '#eee',
         paddingHorizontal: 10,
         shadowColor: 'black',

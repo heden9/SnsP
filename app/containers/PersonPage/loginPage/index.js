@@ -13,7 +13,7 @@ import UserInfo from '../../../mobx/store';
 import LoginPng from '../../../static/img/login.png';
 import { login } from '../../../fetch/Login/login';
 @observer
-export default class LoginPage extends React.PureComponent{
+export default class LoginPage extends React.Component{
     constructor(props, context){
         super(props,context);
         this.state = {
@@ -51,7 +51,8 @@ export default class LoginPage extends React.PureComponent{
                 }
             })
                 .catch((err)=>{
-                    Alert.alert('网络超时TnT');
+                    console.warn(err);
+                    Alert.alert('磊磊 我错了TnT');
             });
         }
     };
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     form: {
         marginTop: 10,
         flexDirection: 'column',
-        borderWidth: .5,
+        borderWidth: 1,
         borderColor: '#ccc',
         borderRadius: 4,
     },
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingHorizontal: 15,
         borderColor: '#ccc',
-        borderWidth: .5,
+        borderBottomWidth: 1,
     },
     Text: {
         fontSize: 12,
@@ -132,7 +133,7 @@ const LoginBtn = (props) => (
     <TouchableHighlight
         onPress={props.onPress}
         underlayColor={'#eee'}
-        style={[styles.inputRow,{borderBottomLeftRadius: 4,borderBottomRightRadius: 4,height: 45}]}>
+        style={[styles.inputRow,{borderBottomLeftRadius: 4,borderBottomRightRadius: 4,height: 45,borderBottomWidth: 0}]}>
         <View style={{flexDirection: 'row',alignItems: 'center'}}>
             <Image source={LoginPng} style={{height: 15,width: 15}}/>
             <Text style={{color: 'rgb(252,80,87)'}}>登录</Text>

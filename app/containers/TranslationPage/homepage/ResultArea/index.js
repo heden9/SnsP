@@ -6,7 +6,7 @@ import {
 import WordItem from '../../../../components/WordItem';
 import { observer } from 'mobx-react';
 @observer
-export default class ResultArea extends React.PureComponent{
+export default class ResultArea extends React.Component{
     render(){
         const result = this.props.result;
         if(result && result.errorCode != 0){
