@@ -19,7 +19,7 @@ import UserInfo from '../mobx/store';
 import { observer } from 'mobx-react';
 
 function changeScreenOrientation() {
-    Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+    Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT_UP);
 }
 @observer
 export default class Router extends React.Component{
